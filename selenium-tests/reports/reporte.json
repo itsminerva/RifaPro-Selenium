@@ -1,0 +1,452 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-08-03T01:15:10.881Z",
+    "end": "2026-08-03T01:15:31.569Z",
+    "duration": 20688,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "da69a62f-02c7-4475-8983-b72c6e79015a",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fd6b9f30-5272-42b0-b73a-523a1b62c9a5",
+          "title": "Prueba Comprar Boletos",
+          "fullFile": "C:\\Users\\Nuevo\\rifapro-selenium\\selenium-tests\\tests\\comprarBoletos.test.js",
+          "file": "\\tests\\comprarBoletos.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Prueba Comprar Boletos\"",
+              "fullTitle": "Prueba Comprar Boletos \"before all\" hook in \"Prueba Comprar Boletos\"",
+              "timedOut": false,
+              "duration": 896,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .build();",
+              "err": {},
+              "uuid": "747f6087-0b5a-47c6-adae-eb55012e961a",
+              "parentUUID": "fd6b9f30-5272-42b0-b73a-523a1b62c9a5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Prueba Comprar Boletos\"",
+              "fullTitle": "Prueba Comprar Boletos \"after all\" hook in \"Prueba Comprar Boletos\"",
+              "timedOut": false,
+              "duration": 62,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "d27102d4-df72-4ce7-86b4-2714d254306f",
+              "parentUUID": "fd6b9f30-5272-42b0-b73a-523a1b62c9a5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Debe seleccionar boletos y realizar la compra",
+              "fullTitle": "Prueba Comprar Boletos Debe seleccionar boletos y realizar la compra",
+              "timedOut": false,
+              "duration": 1477,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir aplicación\n        await driver.get(\"http://localhost:5174/\");\n        // Login\n        await driver.findElement(By.id(\"correo\")).sendKeys(\"admin@rifapro.com\");\n        await driver.findElement(By.id(\"password\")).sendKeys(\"123456\");\n        await driver.findElement(By.id(\"btnLogin\")).click();\n        await driver.wait(until.urlContains(\"/dashboard\"), 5000);\n        // Ir a Comprar Boletos\n        await driver.findElement(By.id(\"btnComprar\")).click();\n        await driver.wait(\n            until.elementLocated(By.id(\"boleto-1\")),\n            5000\n        );\n        // Seleccionar tres boletos\n        await driver.findElement(By.id(\"boleto-1\")).click();\n        await driver.findElement(By.id(\"boleto-5\")).click();\n        await driver.findElement(By.id(\"boleto-10\")).click();\n        // Captura antes de comprar\n        let antes = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/comprar-boletos.png\",\n            antes,\n            \"base64\"\n        );\n        // Confirmar compra\n        await driver.findElement(By.id(\"btnComprar\")).click();\n        // Esperar el mensaje de éxito\n        await driver.wait(\n            until.elementLocated(By.className(\"swal2-popup\")),\n            5000\n        );\n        // Captura del resultado\n        let despues = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/compra-realizada.png\",\n            despues,\n            \"base64\"\n        );\n        // Verificar que apareció el mensaje\n        let titulo = await driver.findElement(\n            By.className(\"swal2-title\")\n        ).getText();\n        expect(titulo).to.equal(\"Compra realizada\");",
+              "err": {},
+              "uuid": "af8d08d3-06ad-4774-82ff-6dfffb34dadb",
+              "parentUUID": "fd6b9f30-5272-42b0-b73a-523a1b62c9a5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "af8d08d3-06ad-4774-82ff-6dfffb34dadb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1477,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "c955ceb5-9332-473e-809b-1a1d345d5705",
+          "title": "Prueba Crear Rifa",
+          "fullFile": "C:\\Users\\Nuevo\\rifapro-selenium\\selenium-tests\\tests\\crearRifa.test.js",
+          "file": "\\tests\\crearRifa.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Prueba Crear Rifa\"",
+              "fullTitle": "Prueba Crear Rifa \"before all\" hook in \"Prueba Crear Rifa\"",
+              "timedOut": false,
+              "duration": 743,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .build();",
+              "err": {},
+              "uuid": "dea9d9b8-9767-4da9-9565-c1c0f17e2d6a",
+              "parentUUID": "c955ceb5-9332-473e-809b-1a1d345d5705",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Prueba Crear Rifa\"",
+              "fullTitle": "Prueba Crear Rifa \"after all\" hook in \"Prueba Crear Rifa\"",
+              "timedOut": false,
+              "duration": 128,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "1de24619-b98b-4a8b-9dd0-c1df070b10cf",
+              "parentUUID": "c955ceb5-9332-473e-809b-1a1d345d5705",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Debe crear una nueva rifa",
+              "fullTitle": "Prueba Crear Rifa Debe crear una nueva rifa",
+              "timedOut": false,
+              "duration": 4148,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://localhost:5174/\");\n        // Login\n        await driver.findElement(By.id(\"correo\")).sendKeys(\"admin@rifapro.com\");\n        await driver.findElement(By.id(\"password\")).sendKeys(\"123456\");\n        await driver.findElement(By.id(\"btnLogin\")).click();\n        await driver.wait(until.urlContains(\"/dashboard\"), 5000);\n        // Ir a Gestión de Rifas\n        await driver.findElement(By.id(\"btnRifas\")).click();\n        await driver.wait(until.elementLocated(By.id(\"txtNombre\")),5000);\n        // Crear rifa\n        await driver.findElement(By.id(\"txtNombre\")).sendKeys(\"Nintendo Switch\");\n        await driver.findElement(By.id(\"txtPrecio\")).sendKeys(\"25\");\n        await driver.findElement(By.id(\"txtFecha\")).sendKeys(\"30-08-2026\");\n        let antes = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/crear-rifa.png\",\n            antes,\n            \"base64\"\n        );\n        await driver.findElement(By.id(\"btnGuardar\")).click();\n        await driver.sleep(2500);\n        let despues = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/rifa-creada.png\",\n            despues,\n            \"base64\"\n        );\n        let tabla = await driver.findElement(By.id(\"tablaRifas\")).getText();\n        expect(tabla).to.include(\"Nintendo Switch\");",
+              "err": {},
+              "uuid": "6a43f04d-ffab-4b7a-a533-252e270f5a0a",
+              "parentUUID": "c955ceb5-9332-473e-809b-1a1d345d5705",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6a43f04d-ffab-4b7a-a533-252e270f5a0a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4148,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "66b3ce21-7130-4f39-8555-41073329a83a",
+          "title": "Prueba Editar Rifa",
+          "fullFile": "C:\\Users\\Nuevo\\rifapro-selenium\\selenium-tests\\tests\\editarRifa.test.js",
+          "file": "\\tests\\editarRifa.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Prueba Editar Rifa\"",
+              "fullTitle": "Prueba Editar Rifa \"before all\" hook in \"Prueba Editar Rifa\"",
+              "timedOut": false,
+              "duration": 691,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .build();",
+              "err": {},
+              "uuid": "ebdee9a5-2150-4a8f-b79a-fe537b4a43b3",
+              "parentUUID": "66b3ce21-7130-4f39-8555-41073329a83a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Prueba Editar Rifa\"",
+              "fullTitle": "Prueba Editar Rifa \"after all\" hook in \"Prueba Editar Rifa\"",
+              "timedOut": false,
+              "duration": 67,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "4cf48258-2830-4ec5-8ee3-a56379ea44ac",
+              "parentUUID": "66b3ce21-7130-4f39-8555-41073329a83a",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Debe editar una rifa correctamente",
+              "fullTitle": "Prueba Editar Rifa Debe editar una rifa correctamente",
+              "timedOut": false,
+              "duration": 4114,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir aplicación\n        await driver.get(\"http://localhost:5174/\");\n        // Login\n        await driver.findElement(By.id(\"correo\")).sendKeys(\"admin@rifapro.com\");\n        await driver.findElement(By.id(\"password\")).sendKeys(\"123456\");\n        await driver.findElement(By.id(\"btnLogin\")).click();\n        await driver.wait(until.urlContains(\"/dashboard\"), 5000);\n        // Ir a Gestión de Rifas\n        await driver.findElement(By.id(\"btnRifas\")).click();\n        await driver.wait(\n            until.elementLocated(By.id(\"tablaRifas\")),\n            5000\n        );\n        // Editar la primera rifa (PlayStation 5)\n        await driver.findElement(By.id(\"editar-1\")).click();\n        // Limpiar campos\n        let nombre = await driver.findElement(By.id(\"txtNombre\"));\n        await nombre.clear();\n        await nombre.sendKeys(\"PlayStation 5 Slim\");\n        let precio = await driver.findElement(By.id(\"txtPrecio\"));\n        await precio.clear();\n        await precio.sendKeys(\"15\");\n        // Captura antes de guardar\n        let antes = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/editar-rifa.png\",\n            antes,\n            \"base64\"\n        );\n        // Guardar cambios\n        await driver.findElement(By.id(\"btnGuardar\")).click();\n        await driver.sleep(2500);\n        // Verificar cambio\n        let tabla = await driver.findElement(By.id(\"tablaRifas\")).getText();\n        expect(tabla).to.include(\"PlayStation 5 Slim\");\n        // Captura final\n        let despues = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/rifa-editada.png\",\n            despues,\n            \"base64\"\n        );",
+              "err": {},
+              "uuid": "ae2a4703-914f-43d0-95a7-6cbc66245913",
+              "parentUUID": "66b3ce21-7130-4f39-8555-41073329a83a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ae2a4703-914f-43d0-95a7-6cbc66245913"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4114,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "f6a2a736-4ff9-47a7-b425-7eb513f12d77",
+          "title": "Prueba Eliminar Rifa",
+          "fullFile": "C:\\Users\\Nuevo\\rifapro-selenium\\selenium-tests\\tests\\eliminarRifa.test.js",
+          "file": "\\tests\\eliminarRifa.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Prueba Eliminar Rifa\"",
+              "fullTitle": "Prueba Eliminar Rifa \"before all\" hook in \"Prueba Eliminar Rifa\"",
+              "timedOut": false,
+              "duration": 697,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .build();",
+              "err": {},
+              "uuid": "0340f439-952d-4268-ae7e-a4cd3c572134",
+              "parentUUID": "f6a2a736-4ff9-47a7-b425-7eb513f12d77",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Prueba Eliminar Rifa\"",
+              "fullTitle": "Prueba Eliminar Rifa \"after all\" hook in \"Prueba Eliminar Rifa\"",
+              "timedOut": false,
+              "duration": 108,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "5928aa26-3a04-4f2f-96fd-feef4b74311b",
+              "parentUUID": "f6a2a736-4ff9-47a7-b425-7eb513f12d77",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Debe eliminar una rifa correctamente",
+              "fullTitle": "Prueba Eliminar Rifa Debe eliminar una rifa correctamente",
+              "timedOut": false,
+              "duration": 3827,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Abrir aplicación\n        await driver.get(\"http://localhost:5174/\");\n        // Login\n        await driver.findElement(By.id(\"correo\")).sendKeys(\"admin@rifapro.com\");\n        await driver.findElement(By.id(\"password\")).sendKeys(\"123456\");\n        await driver.findElement(By.id(\"btnLogin\")).click();\n        await driver.wait(until.urlContains(\"/dashboard\"), 5000);\n        // Ir a Gestión de Rifas\n        await driver.findElement(By.id(\"btnRifas\")).click();\n        await driver.wait(\n            until.elementLocated(By.id(\"tablaRifas\")),\n            5000\n        );\n        // Captura antes de eliminar\n        let antes = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/eliminar-rifa.png\",\n            antes,\n            \"base64\"\n        );\n        // Pulsar botón eliminar\n        await driver.findElement(By.id(\"eliminar-1\")).click();\n        // Esperar el botón de confirmación de SweetAlert2\n        await driver.wait(\n            until.elementLocated(By.className(\"swal2-confirm\")),\n            5000\n        );\n        // Confirmar eliminación\n        await driver.findElement(By.className(\"swal2-confirm\")).click();\n        await driver.sleep(2500);\n        // Captura después de eliminar\n        let despues = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/rifa-eliminada.png\",\n            despues,\n            \"base64\"\n        );\n        // Verificar que ya no existe la PlayStation 5\n        let tabla = await driver.findElement(By.id(\"tablaRifas\")).getText();\n        expect(tabla).to.not.include(\"PlayStation 5\");",
+              "err": {},
+              "uuid": "53e6836d-0026-4569-952f-a4fec89d82e9",
+              "parentUUID": "f6a2a736-4ff9-47a7-b425-7eb513f12d77",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "53e6836d-0026-4569-952f-a4fec89d82e9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3827,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "6f4b1be0-4fc3-4fa4-9b88-fa67687ec9c2",
+          "title": "Prueba Login Rifa",
+          "fullFile": "C:\\Users\\Nuevo\\rifapro-selenium\\selenium-tests\\tests\\rifa.test.js",
+          "file": "\\tests\\rifa.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Prueba Login Rifa\"",
+              "fullTitle": "Prueba Login Rifa \"before all\" hook in \"Prueba Login Rifa\"",
+              "timedOut": false,
+              "duration": 692,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder()\n    .forBrowser(\"chrome\")\n    .build();",
+              "err": {},
+              "uuid": "9d73fd42-9f80-4f9b-8271-a00c1560555b",
+              "parentUUID": "6f4b1be0-4fc3-4fa4-9b88-fa67687ec9c2",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Prueba Login Rifa\"",
+              "fullTitle": "Prueba Login Rifa \"after all\" hook in \"Prueba Login Rifa\"",
+              "timedOut": false,
+              "duration": 91,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "8781b915-9aff-42d5-aed9-26b4c4edfed0",
+              "parentUUID": "6f4b1be0-4fc3-4fa4-9b88-fa67687ec9c2",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Debe iniciar sesión y entrar al dashboard",
+              "fullTitle": "Prueba Login Rifa Debe iniciar sesión y entrar al dashboard",
+              "timedOut": false,
+              "duration": 2934,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"http://localhost:5174/\");\n        // Buscar campos del login\n        let correo = await driver.findElement(By.id(\"correo\"));\n        let password = await driver.findElement(By.id(\"password\"));\n        let boton = await driver.findElement(By.id(\"btnLogin\"));\n        // Verificar que existen\n        expect(correo).to.exist;\n        expect(password).to.exist;\n        expect(boton).to.exist;\n        // Escribir credenciales\n        await correo.clear();\n        await correo.sendKeys(\"admin@rifapro.com\");\n        await password.clear();\n        await password.sendKeys(\"123456\");\n        // Captura antes del login\n        let screenshotAntes = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/login-con-datos.png\",\n            screenshotAntes,\n            \"base64\"\n        );\n        // Presionar botón login\n        await boton.click();\n        // Esperar redirección\n        await driver.sleep(2000);\n        // Verificar que entró al dashboard\n        let url = await driver.getCurrentUrl();\n        expect(url).to.include(\"/dashboard\");\n        // Captura del dashboard\n        let screenshotDespues = await driver.takeScreenshot();\n        fs.writeFileSync(\n            \"screenshots/dashboard.png\",\n            screenshotDespues,\n            \"base64\"\n        );",
+              "err": {},
+              "uuid": "cc1c5ec7-018d-4b53-a157-689939c7a09e",
+              "parentUUID": "6f4b1be0-4fc3-4fa4-9b88-fa67687ec9c2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cc1c5ec7-018d-4b53-a157-689939c7a09e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2934,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.6"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "reporte",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "reportFilename": "reporte",
+        "overwrite": "true",
+        "html": "true",
+        "json": "true"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/*.test.js"
+    "test": "mocha tests/**/*.test.js --reporter mochawesome --reporter-options reportDir=reports,reportFilename=reporte,overwrite=true,html=true,json=true"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +15,8 @@
     "chromedriver": "^151.0.1",
     "mocha": "^11.7.6",
     "selenium-webdriver": "^4.46.0"
+  },
+  "devDependencies": {
+    "mochawesome": "^8.0.1"
   }
 }
