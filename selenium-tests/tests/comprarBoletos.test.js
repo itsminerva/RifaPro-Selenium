@@ -21,7 +21,7 @@ describe("Prueba Comprar Boletos", function () {
     it("Debe seleccionar boletos y realizar la compra", async function () {
 
         // Abrir aplicación
-        await driver.get("http://localhost:5174/");
+        await driver.get("http://localhost:5173/");
 
         // Login
         await driver.findElement(By.id("correo")).sendKeys("admin@rifapro.com");

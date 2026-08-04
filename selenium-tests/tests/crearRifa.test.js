@@ -20,7 +20,7 @@ describe("Prueba Crear Rifa", function () {
 
     it("Debe crear una nueva rifa", async function () {
 
-        await driver.get("http://localhost:5174/");
+        await driver.get("http://localhost:5173/");
 
         // Login
         await driver.findElement(By.id("correo")).sendKeys("admin@rifapro.com");

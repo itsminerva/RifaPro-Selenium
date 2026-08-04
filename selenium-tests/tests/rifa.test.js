@@ -20,7 +20,7 @@ describe("Prueba Login Rifa", function () {
 
     it("Debe iniciar sesión y entrar al dashboard", async function () {
 
-        await driver.get("http://localhost:5174/");
+        await driver.get("http://localhost:5173/");
 
         // Buscar campos del login
         let correo = await driver.findElement(By.id("correo"));

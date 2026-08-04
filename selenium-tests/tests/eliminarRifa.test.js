@@ -21,7 +21,7 @@ describe("Prueba Eliminar Rifa", function () {
     it("Debe eliminar una rifa correctamente", async function () {
 
         // Abrir aplicación
-        await driver.get("http://localhost:5174/");
+        await driver.get("http://localhost:5173/");
 
         // Login
         await driver.findElement(By.id("correo")).sendKeys("admin@rifapro.com");
